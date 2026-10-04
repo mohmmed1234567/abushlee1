@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pro-web-calc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pro-web-calc
+  template:
+    metadata:
+      labels:
+        app: pro-web-calc
+    spec:
+      containers:
+        - name: calculator
+          image: pro-web-calc:latest
+          ports:
+            - containerPort: 8080
